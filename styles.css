@@ -1,0 +1,39 @@
+/* Modern, Clean Design System */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #60a5fa;
+    --text-color: #1f2937;
+    --background-color: #ffffff;
+    --light-gray: #f3f4f6;
+}
+
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+    padding: 2rem;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Styles */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+/* Service Cards */
+.service-card {
+    background: var(--background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+} 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Liu Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Liu Tech</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="section-title">Contact Us</h1>
+    </div>
+  </header>
+
+  <!-- Repair Quote Form -->
+  <section class="quote-form">
+    <div class="container">
+      <h2 class="section-title">Get Help With Your Device</h2>
+      <p class="section-subtitle">Tell us about your issue and we'll get back to you within 1 business hour. Email Us: liutechca@gmail.com</p>
+      <form id="repairForm" onsubmit="showConfirmation(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="device">Device Type</label>
+            <select id="device" name="device">
+              <option value="">Select Device (Optional)</option>
+              <option value="phone">Smartphone</option>
+              <option value="computer">Computer/Laptop</option>
+              <option value="tablet">Tablet</option>
+              <option value="gaming">Gaming Console</option>
+              <option value="electronics">Other Electronics</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="model">Device Model/Brand</label>
+            <input type="text" id="model" name="model" placeholder="e.g., iPhone 13, PS5, Dell XPS, etc. (Optional)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="issue">Describe Your Issue*</label>
+          <textarea id="issue" name="issue" rows="4" required 
+            placeholder="Tell us what's wrong with your device. Any additional details will help us better assist you."></textarea>
+        </div>
+        <button type="submit" class="submit-button">Send Request →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Thank You!</h2>
+      <p>We've received your repair request and will contact you within 1 business hour.</p>
+      <p>For immediate assistance, email us at liutechca@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Liu Tech</h4>
+          <p>Serving Lafayette, CA<br>Innovative tech solutions since 2020</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>liutechca@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="sustainability.html">Sustainability</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Liu Tech. All rights reserved. <a href="https://liutechca.com" style="color: white;">liutechca.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Modal -->
+  <script>
+    function showConfirmation(event) {
+      event.preventDefault();
+      const modal = document.getElementById('confirmationModal');
+      modal.style.display = 'block';
+      
+      // Optional: Reset form
+      document.getElementById('repairForm').reset();
+    }
+
+    // Close modal when clicking the X
+    document.querySelector('.close-modal').onclick = function() {
+      document.getElementById('confirmationModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('confirmationModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

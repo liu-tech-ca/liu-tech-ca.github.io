@@ -1,758 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiuTech - Device Repair Services</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #f4f4f4;
-        }
-        
-        /* Notice Banner */
-        .notice-banner {
-            background: #e74c3c;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .notice-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .notice-banner a {
-            color: #ffd700;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-        
-        .notice-banner a:hover {
-            color: #ffed4e;
-        }
-        
-        /* Header */
-        .header-top {
-            background: #2c3e50;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .header-top a {
-            color: #ecf0f1;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        
-        header {
-            background: #34495e;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-        
-        .header-contact {
-            text-align: right;
-            color: white;
-        }
-        
-        .header-contact strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .header-contact span {
-            font-size: 24px;
-            color: #3498db;
-        }
-        
-        /* Banner */
-        .banner {
-            background: linear-gradient(to bottom, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.8)), url('images/2021-08-17.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .banner-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .banner h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .banner p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .banner-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-        }
-        
-        .banner-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-        }
-        
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        /* Welcome Section */
-        .welcome-section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-        
-        .welcome-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .welcome-text {
-            grid-column: 1;
-        }
-        
-        .welcome-section h2 {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 15px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        .welcome-section p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        /* Services Grid */
-        .services-section {
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            background: #34495e;
-            color: white;
-            padding: 15px 20px;
-            font-size: 24px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        @media (min-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .service-box {
-            background: white;
-            padding: 25px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .service-box:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        
-        .service-icon {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            background: #ecf0f1;
-        }
-        
-        .service-box h3 {
-            color: #2c3e50;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .service-box p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .service-price {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-        
-        .service-link {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        .service-link:hover {
-            background: #2980b9;
-        }
-        
-        /* Why Choose Us */
-        .why-choose {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .feature-item {
-            padding: 15px;
-            background: #ecf0f1;
-            border-left: 4px solid #3498db;
-            border-radius: 3px;
-        }
-        
-        .feature-image {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 3px;
-            margin-bottom: 10px;
-        }
-        
-        /* Gallery Section */
-        .gallery-section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .gallery-item {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .feature-item h4 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-        
-        .feature-item p {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Testimonials */
-        .testimonials-section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .testimonial-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        .testimonial-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-stars {
-            color: #f39c12;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        
-        .contact-info h3 {
-            color: #2c3e50;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .contact-info p {
-            color: #555;
-            margin-bottom: 10px;
-            line-height: 1.8;
-        }
-        
-        .contact-form {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .submit-button {
-            background: #e74c3c;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .submit-button:hover {
-            background: #c0392b;
-        }
-        
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin-bottom: 20px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 968px) {
-            .services-grid,
-            .testimonials-grid,
-            .features-list,
-            .contact-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .welcome-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liu Tech - Professional Technology Solutions</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Add Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="notice-banner">
-        <div class="notice-content">
-            <strong>Notice:</strong> We are currently not accepting new repair services. For inquiries, please email us at <a href="mailto:liutechca@gmail.com">liutechca@gmail.com</a>
+  <!-- Hero Section -->
+  <header class="hero">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Liu Tech</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+          <a href="contact.html" class="cta-button">Book Service</a>
         </div>
     </div>
-    
-    <div class="header-top">
-        <a href="#">Home</a> | 
-        <a href="#services">Services</a> | 
-        <a href="#contact">Contact</a> | 
-        <a href="#about">About Us</a>
+  </nav>
+
+    <div class="container">
+      <div class="hero-content">
+        <h1>Liu Tech</h1>
+        <p>Reliable and Professional Electronics Repair & Tech Solutions Since 2020</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="primary-button">Get Started</a>
+          <a href="services.html" class="secondary-button">View Services</a>
+        </div>
+      </div>
     </div>
-    
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="assets/Logo2.png" alt="LiuTech Device Repair">
-            </div>
-            <div class="header-contact">
-                <strong>Contact</strong>
-                <span>liutechca@gmail.com</span>
-            </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Expert solutions for all your technology needs</p>
+      </div>
+      <div class="service-grid">
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg" alt="PC Repair" class="service-image">
+          <div class="service-content">
+            <h3>PC & Laptop Repair</h3>
+            <ul class="service-features">
+              <li>Hardware diagnostics</li>
+              <li>Virus removal</li>
+              <li>Data recovery</li>
+              <li>And many other PC & laptop repairs</li>
+            </ul>
+          </div>
         </div>
-    </header>
-    
-    <section class="banner" id="home">
-        <div class="banner-content">
-            <h1>LiuTech Device Repair</h1>
-            <p>Formerly serving the Bay Area with expert device repair services</p>
+        </a>
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="2.jpeg" alt="Phone Repair" class="service-image">
+          <div class="service-content">
+            <h3>Smartphone Repair</h3>
+            <ul class="service-features">
+              <li>Screen replacement</li>
+              <li>Battery replacement</li>
+              <li>Water damage repair</li>
+              <li>And many other PC & laptop repairs</li>
+            </ul>
+          </div>
         </div>
-    </section>
-    
-    <div class="main-content">
-        <section class="welcome-section">
-            <div class="welcome-text">
-                <h2>About LiuTech Device Repair</h2>
-                <p>LiuTech was a trusted device repair service operating in the Bay Area, specializing in high-quality repair services for electronic devices. With years of experience in the industry, our team of certified technicians was committed to delivering fast, reliable, and affordable solutions for repair needs.</p>
-                <p>We provided screen replacements, battery swaps, motherboard repairs, and more. All repairs were performed using high-quality parts and backed by comprehensive warranties.</p>
-                <p>While we are no longer accepting new repair services, we appreciate all the customers who trusted us with their devices over the years. For any inquiries, please reach out via email.</p>
-            </div>
-            <img src="images/2021-02-27.png" alt="LiuTech Repair Shop" class="welcome-image">
-        </section>
-        
-        <section class="services-section" id="services">
-            <div class="section-title">Services We Provided</div>
-            <div class="services-grid">
-                <div class="service-box">
-                    <img src="images/(Boston iPhone Repair 31Jan16 0058 of 0065.jpg" alt="Phone Repair" class="service-icon">
-                    <h3>Phone Repair</h3>
-                    <p>Screen replacements, battery swaps, charging port fixes, water damage repair, and more for all major phone brands.</p>
-                    <div class="service-price">Starting at $99</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.08 AM.png" alt="Laptop Repair" class="service-icon">
-                    <h3>Laptop Repair</h3>
-                    <p>Hardware upgrades, keyboard replacements, screen repairs, motherboard fixes, and performance optimization.</p>
-                    <div class="service-price">Starting at $149</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.13 AM.png" alt="Tablet & Watch Repair" class="service-icon">
-                    <h3>Tablet & Watch</h3>
-                    <p>Complete repair services for tablets, smartwatches, and wearable devices. Screen replacements and more.</p>
-                    <div class="service-price">Starting at $79</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.22 AM.png" alt="Water Damage Repair" class="service-icon">
-                    <h3>Water Damage</h3>
-                    <p>Emergency water damage repair services to save your device from liquid damage. Quick response time.</p>
-                    <div class="service-price">Starting at $129</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.30 AM.png" alt="Data Recovery" class="service-icon">
-                    <h3>Data Recovery</h3>
-                    <p>Professional data recovery services for damaged or corrupted devices. Don't lose your important files!</p>
-                    <div class="service-price">Starting at $199</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.39 AM.png" alt="General Repair" class="service-icon">
-                    <h3>General Repair</h3>
-                    <p>All other device repairs. Contact us for a custom quote on your specific repair needs.</p>
-                    <div class="service-price">Custom Pricing</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/(Boston iPhone Repair 31Jan16 0060 of 0065.jpg" alt="Device Repair" class="service-icon">
-                    <h3>Device Repair</h3>
-                    <p>Comprehensive repair services for all types of electronic devices and components.</p>
-                    <div class="service-price">Various Pricing</div>
-                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="why-choose" id="why">
-            <h2 class="section-title" style="margin-top: 0;">What Made Us Different</h2>
-            <div class="features-list">
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.37.17 AM.png" alt="Fast Service" class="feature-image">
-                    <h4>Fast Service</h4>
-                    <p>Most repairs completed within 24 hours. We understand you need your device back quickly!</p>
-                </div>
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.37.30 AM.png" alt="Quality Parts" class="feature-image">
-                    <h4>Quality Parts</h4>
-                    <p>We use only certified, high-quality replacement parts from trusted suppliers.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.40.33 AM.png" alt="Expert Technicians" class="feature-image">
-                    <h4>Expert Technicians</h4>
-                    <p>Our team consists of certified professionals with years of experience in device repair.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.40.59 AM.png" alt="Warranty Included" class="feature-image">
-                    <h4>Warranty Included</h4>
-                    <p>All repairs come with a comprehensive 1-year warranty for your peace of mind.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.41.51 AM.png" alt="Competitive Pricing" class="feature-image">
-                    <h4>Competitive Pricing</h4>
-                    <p>Fair and transparent pricing with no hidden fees. Get a free quote today!</p>
-                </div>
-                <div class="feature-item">
-                    <img src="images/Screenshot 2025-02-03 at 2.42.06 AM.png" alt="Bay Area Service" class="feature-image">
-                    <h4>Bay Area Service</h4>
-                    <p>We proudly served customers throughout the San Francisco Bay Area for many years.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="testimonials-section" id="testimonials">
-            <h2 class="section-title" style="margin-top: 0;">What Our Customers Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.42.11 AM.png" alt="Customer Service" class="testimonial-image">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Excellent service! My phone was fixed quickly and the staff was very professional. Highly recommend LiuTech!"</p>
-                    <p class="testimonial-author">— Sarah M., San Francisco</p>
-                </div>
-                <div class="testimonial-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.42.19 AM.png" alt="Repair Quality" class="testimonial-image">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Best repair shop in the area. Fair prices and great customer service. Will definitely come back for future repairs."</p>
-                    <p class="testimonial-author">— Mike T., Oakland</p>
-                </div>
-                <div class="testimonial-box">
-                    <img src="images/Screenshot 2025-02-03 at 2.42.27 AM.png" alt="Water Damage Repair" class="testimonial-image">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"They saved my laptop from water damage. Professional, fast, and affordable. Thank you LiuTech!"</p>
-                    <p class="testimonial-author">— Jennifer L., San Jose</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="gallery-section" id="gallery">
-            <h2 class="section-title" style="margin-top: 0;">Our Work Gallery</h2>
-            <div class="gallery-grid">
-                <img src="images/Screenshot 2025-02-03 at 2.42.37 AM.png" alt="Repair Work" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.31.14 PM.png" alt="Device Repair" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.31.46 PM.png" alt="Repair Service" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.32.06 PM.png" alt="Device Fix" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.34.10 PM.png" alt="Repair Work" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.34.19 PM.png" alt="Device Repair" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.34.19 PM copy.png" alt="Repair Service" class="gallery-item">
-                <img src="images/Screenshot 2025-02-05 at 3.35.03 PM.png" alt="Device Fix" class="gallery-item">
-            </div>
-        </section>
-        
-        <section class="contact-section" id="contact">
-            <h2 class="section-title" style="margin-top: 0;">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><strong>Location:</strong><br>
-                    Formerly serving the<br>
-                    San Francisco Bay Area</p>
-                    <p><strong>Email:</strong><br>
-                    <a href="mailto:liutechca@gmail.com">liutechca@gmail.com</a></p>
-                    <p><strong>Status:</strong><br>
-                    Business operations have concluded.<br>
-                    Thank you to all our customers.</p>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="liutechca@gmail.com" required>
-                        <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">Or email us directly at: <a href="mailto:liutechca@gmail.com">liutechca@gmail.com</a></small>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
-            </div>
-        </section>
+        </a>
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="3.jpeg" alt="Tablet Repair" class="service-image">
+          <div class="service-content">
+            <h3>Tablet Repair</h3>
+            <ul class="service-features">
+              <li>Display repair</li>
+              <li>Charging port replacement</li>
+              <li>Performance issues</li>
+              <li>And many other tablet repairs</li>
+            </ul>
+          </div>
+        </div>
+        </a>
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="4.jpeg" alt="PC Build" class="service-image">
+          <div class="service-content">
+            <h3>Custom PC Builds</h3>
+            <ul class="service-features">
+              <li>Gaming systems</li>
+              <li>Workstations</li>
+              <li>Servers</li>
+              <li>Custom configurations</li>
+            </ul>
+          </div>
+        </div>
+        </a>
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="https://images.pexels.com/photos/270366/pexels-photo-270366.jpeg" alt="Web Development" class="service-image">
+          <div class="service-content">
+            <h3>Web Development</h3>
+            <ul class="service-features">
+              <li>Responsive design</li>
+              <li>E-commerce solutions</li>
+              <li>SEO optimization</li>
+              <li>Maintenance packages</li>
+            </ul>
+          </div>
+        </div>
+        </a>
+        <a href="contact.html" class="service-card">
+        <div class="service-card">
+          <img src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg" alt="Consulting" class="service-image">
+          <div class="service-content">
+            <h3>Tech Consulting</h3>
+            <ul class="service-features">
+              <li>Business solutions</li>
+              <li>Infrastructure setup</li>
+              <li>Cloud migration</li>
+              <li>Automation solutions</li>
+            </ul>
+          </div>
+        </div>
+        </a>
+      </div>
     </div>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#why">Why Choose Us</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <p>&copy; 2025 LiuTech Device Repair. All Rights Reserved.</p>
-            <p style="margin-top: 10px; font-size: 12px;">Formerly serving the San Francisco Bay Area</p>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="highlight-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Liu Tech?</h2>
+      </div>
+      <div class="why-grid">
+        <a href="contact.html" class="feature-card">
+          <i class="fas fa-clock"></i>
+          <h4>Rapid Service</h4>
+          <p>24-hour response time guarantee</p>
+        </a>
+        <a href="contact.html" class="feature-card">
+          <i class="fas fa-certificate"></i>
+          <h4>Certified Experts</h4>
+          <p>Manufacturer-certified technicians</p>
+        </a>
+        <a href="contact.html" class="feature-card">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Warranty Protection</h4>
+          <p>90 days warranty on all repairs</p>
+        </a>
+        <a href="contact.html" class="feature-card">
+          <i class="fas fa-dollar-sign"></i>
+          <h4>Affordable Pricing</h4>
+          <p>Competitive rates for quality service</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Liu Tech</h4>
+          <p>Serving the Bay Area<br>Innovative tech solutions since 2020</p>
         </div>
-    </footer>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>liutechca@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="sustainability.html">Sustainability</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Liu Tech. All rights reserved. <a href="https://liutechca.com" style="color: white;">liutechca.com</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
