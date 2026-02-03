@@ -37,7 +37,7 @@
     <div class="container">
       <h2 class="section-title">Get Help With Your Device</h2>
       <p class="section-subtitle">Tell us about your issue and we'll get back to you within 1 business hour. Email Us: liutechca@gmail.com</p>
-      <form id="repairForm" onsubmit="showConfirmation(event)">
+      <form id="repairForm" onsubmit="sendEmail(event)">
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Name*</label>
@@ -114,14 +114,39 @@
     </div>
   </footer>
 
-  <!-- JavaScript for Modal -->
+  <!-- JavaScript for Email -->
   <script>
-    function showConfirmation(event) {
+    function sendEmail(event) {
       event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const device = document.getElementById('device').value;
+      const model = document.getElementById('model').value;
+      const issue = document.getElementById('issue').value;
+      
+      // Build email subject
+      const subject = encodeURIComponent(`Repair Request: ${device || 'Device'} - ${model || 'Not specified'}`);
+      
+      // Build email body
+      let body = `Name: ${name}\n`;
+      body += `Email: ${email}\n`;
+      body += `Phone: ${phone}\n`;
+      if (device) body += `Device Type: ${device}\n`;
+      if (model) body += `Device Model/Brand: ${model}\n`;
+      body += `\nIssue Description:\n${issue}`;
+      
+      body = encodeURIComponent(body);
+      
+      // Open email client
+      window.location.href = `mailto:liutechca@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Show confirmation
       const modal = document.getElementById('confirmationModal');
       modal.style.display = 'block';
       
-      // Optional: Reset form
+      // Reset form
       document.getElementById('repairForm').reset();
     }
 
