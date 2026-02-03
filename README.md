@@ -1,6 +1,6 @@
 # LiuTech Device Repair Website
 
-A classic 2010s-style business website for LiuTech Device Repair services.
+Business website for LiuTech Device Repair services.
 
 ## Structure
 
