@@ -101,7 +101,9 @@
         
         /* Banner */
         .banner {
-            background: linear-gradient(to bottom, #3498db, #2980b9);
+            background: linear-gradient(to bottom, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.8)), url('images/2021-08-17.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -157,6 +159,22 @@
             margin-bottom: 30px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .welcome-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-text {
+            grid-column: 1;
         }
         
         .welcome-section h2 {
@@ -193,6 +211,12 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+        }
+        
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .service-box {
@@ -276,6 +300,44 @@
             border-radius: 3px;
         }
         
+        .feature-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
         .feature-item h4 {
             color: #2c3e50;
             font-size: 18px;
@@ -308,6 +370,14 @@
             padding: 20px;
             border-radius: 5px;
             border: 1px solid #ddd;
+        }
+        
+        .testimonial-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
         
         .testimonial-stars {
@@ -437,13 +507,24 @@
             .services-grid,
             .testimonials-grid,
             .features-list,
-            .contact-grid {
+            .contact-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-section {
                 grid-template-columns: 1fr;
             }
             
             .header-content {
                 flex-direction: column;
                 gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -483,10 +564,13 @@
     
     <div class="main-content">
         <section class="welcome-section">
-            <h2>About LiuTech Device Repair</h2>
-            <p>LiuTech was a trusted device repair service operating in the Bay Area, specializing in high-quality repair services for electronic devices. With years of experience in the industry, our team of certified technicians was committed to delivering fast, reliable, and affordable solutions for repair needs.</p>
-            <p>We provided screen replacements, battery swaps, motherboard repairs, and more. All repairs were performed using high-quality parts and backed by comprehensive warranties.</p>
-            <p>While we are no longer accepting new repair services, we appreciate all the customers who trusted us with their devices over the years. For any inquiries, please reach out via email.</p>
+            <div class="welcome-text">
+                <h2>About LiuTech Device Repair</h2>
+                <p>LiuTech was a trusted device repair service operating in the Bay Area, specializing in high-quality repair services for electronic devices. With years of experience in the industry, our team of certified technicians was committed to delivering fast, reliable, and affordable solutions for repair needs.</p>
+                <p>We provided screen replacements, battery swaps, motherboard repairs, and more. All repairs were performed using high-quality parts and backed by comprehensive warranties.</p>
+                <p>While we are no longer accepting new repair services, we appreciate all the customers who trusted us with their devices over the years. For any inquiries, please reach out via email.</p>
+            </div>
+            <img src="images/2021-02-27.png" alt="LiuTech Repair Shop" class="welcome-image">
         </section>
         
         <section class="services-section" id="services">
@@ -504,35 +588,42 @@
                     <h3>Laptop Repair</h3>
                     <p>Hardware upgrades, keyboard replacements, screen repairs, motherboard fixes, and performance optimization.</p>
                     <div class="service-price">Starting at $149</div>
-                    <a href="#contact" class="service-link">Get Quote</a>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
                 </div>
                 <div class="service-box">
                     <img src="images/Screenshot 2025-02-03 at 2.41.13 AM.png" alt="Tablet & Watch Repair" class="service-icon">
                     <h3>Tablet & Watch</h3>
                     <p>Complete repair services for tablets, smartwatches, and wearable devices. Screen replacements and more.</p>
                     <div class="service-price">Starting at $79</div>
-                    <a href="#contact" class="service-link">Get Quote</a>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
                 </div>
                 <div class="service-box">
                     <img src="images/Screenshot 2025-02-03 at 2.41.22 AM.png" alt="Water Damage Repair" class="service-icon">
                     <h3>Water Damage</h3>
                     <p>Emergency water damage repair services to save your device from liquid damage. Quick response time.</p>
                     <div class="service-price">Starting at $129</div>
-                    <a href="#contact" class="service-link">Get Quote</a>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
                 </div>
                 <div class="service-box">
                     <img src="images/Screenshot 2025-02-03 at 2.41.30 AM.png" alt="Data Recovery" class="service-icon">
                     <h3>Data Recovery</h3>
                     <p>Professional data recovery services for damaged or corrupted devices. Don't lose your important files!</p>
                     <div class="service-price">Starting at $199</div>
-                    <a href="#contact" class="service-link">Get Quote</a>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
                 </div>
                 <div class="service-box">
                     <img src="images/Screenshot 2025-02-03 at 2.41.39 AM.png" alt="General Repair" class="service-icon">
                     <h3>General Repair</h3>
                     <p>All other device repairs. Contact us for a custom quote on your specific repair needs.</p>
                     <div class="service-price">Custom Pricing</div>
-                    <a href="#contact" class="service-link">Get Quote</a>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
+                </div>
+                <div class="service-box">
+                    <img src="images/(Boston iPhone Repair 31Jan16 0060 of 0065.jpg" alt="Device Repair" class="service-icon">
+                    <h3>Device Repair</h3>
+                    <p>Comprehensive repair services for all types of electronic devices and components.</p>
+                    <div class="service-price">Various Pricing</div>
+                    <p style="color: #999; font-size: 12px; margin-top: 10px;">Service no longer available</p>
                 </div>
             </div>
         </section>
@@ -541,26 +632,32 @@
             <h2 class="section-title" style="margin-top: 0;">What Made Us Different</h2>
             <div class="features-list">
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.37.17 AM.png" alt="Fast Service" class="feature-image">
                     <h4>Fast Service</h4>
                     <p>Most repairs completed within 24 hours. We understand you need your device back quickly!</p>
                 </div>
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.37.30 AM.png" alt="Quality Parts" class="feature-image">
                     <h4>Quality Parts</h4>
                     <p>We use only certified, high-quality replacement parts from trusted suppliers.</p>
                 </div>
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.40.33 AM.png" alt="Expert Technicians" class="feature-image">
                     <h4>Expert Technicians</h4>
                     <p>Our team consists of certified professionals with years of experience in device repair.</p>
                 </div>
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.40.59 AM.png" alt="Warranty Included" class="feature-image">
                     <h4>Warranty Included</h4>
                     <p>All repairs come with a comprehensive 1-year warranty for your peace of mind.</p>
                 </div>
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.41.51 AM.png" alt="Competitive Pricing" class="feature-image">
                     <h4>Competitive Pricing</h4>
                     <p>Fair and transparent pricing with no hidden fees. Get a free quote today!</p>
                 </div>
                 <div class="feature-item">
+                    <img src="images/Screenshot 2025-02-03 at 2.42.06 AM.png" alt="Bay Area Service" class="feature-image">
                     <h4>Bay Area Service</h4>
                     <p>We proudly served customers throughout the San Francisco Bay Area for many years.</p>
                 </div>
@@ -571,20 +668,37 @@
             <h2 class="section-title" style="margin-top: 0;">What Our Customers Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-box">
+                    <img src="images/Screenshot 2025-02-03 at 2.42.11 AM.png" alt="Customer Service" class="testimonial-image">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"Excellent service! My phone was fixed quickly and the staff was very professional. Highly recommend LiuTech!"</p>
                     <p class="testimonial-author">— Sarah M., San Francisco</p>
                 </div>
                 <div class="testimonial-box">
+                    <img src="images/Screenshot 2025-02-03 at 2.42.19 AM.png" alt="Repair Quality" class="testimonial-image">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"Best repair shop in the area. Fair prices and great customer service. Will definitely come back for future repairs."</p>
                     <p class="testimonial-author">— Mike T., Oakland</p>
                 </div>
                 <div class="testimonial-box">
+                    <img src="images/Screenshot 2025-02-03 at 2.42.27 AM.png" alt="Water Damage Repair" class="testimonial-image">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"They saved my laptop from water damage. Professional, fast, and affordable. Thank you LiuTech!"</p>
                     <p class="testimonial-author">— Jennifer L., San Jose</p>
                 </div>
+            </div>
+        </section>
+        
+        <section class="gallery-section" id="gallery">
+            <h2 class="section-title" style="margin-top: 0;">Our Work Gallery</h2>
+            <div class="gallery-grid">
+                <img src="images/Screenshot 2025-02-03 at 2.42.37 AM.png" alt="Repair Work" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.31.14 PM.png" alt="Device Repair" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.31.46 PM.png" alt="Repair Service" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.32.06 PM.png" alt="Device Fix" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.34.10 PM.png" alt="Repair Work" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.34.19 PM.png" alt="Device Repair" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.34.19 PM copy.png" alt="Repair Service" class="gallery-item">
+                <img src="images/Screenshot 2025-02-05 at 3.35.03 PM.png" alt="Device Fix" class="gallery-item">
             </div>
         </section>
         
